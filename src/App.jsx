@@ -1,9 +1,12 @@
 import React from 'react'
-import { SiteRoutes } from './pages/site-routes'
+import { Layout } from './pages/Layout'
+import { SiteRoutes } from './pages/SiteRoutes'
 
 function App() {
   return (
-    <SiteRoutes />
+    <Layout>
+      <SiteRoutes />
+    </Layout>
   )
 }
 
