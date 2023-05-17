@@ -3,6 +3,7 @@ import { HomePage } from '../Home';
 import { LoginPage } from '../Login';
 import { RegisterPage } from '../Register';
 import { ErrorPage } from '../Error';
+import { VenuePage } from '../Venue';
 
 export function SiteRoutes() {
   return (
@@ -10,6 +11,7 @@ export function SiteRoutes() {
       <Route path="/" element={<HomePage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/venue/:id" element={<VenuePage />}></Route>
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   )
