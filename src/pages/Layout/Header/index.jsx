@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export function Header() {
   return (
     <header>
-      <nav className='flex justify-center gap-80 my-5'>
+      <nav className='flex justify-center gap-16 md:gap-96 my-5'>
         <ul>
           <li>
             <Link to="/">HOLIDAZE</Link>
