@@ -1,0 +1,29 @@
+.venueContainer {
+  position: relative;
+  max-width: 450px;
+}
+
+.venueImage {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: .5s ease;
+}
+
+.venueInfo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  visibility: none;
+  opacity: 0;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: .5s ease;
+}
+
+.venueContainer:hover .venueInfo{
+  visibility: visible;
+  opacity: 1;
+}
