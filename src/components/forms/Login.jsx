@@ -1,13 +1,39 @@
+import {  useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { LOGIN_URL } from '../../utils/ApiUrls';
 
 export function LoginForm() {
 
   const { register, handleSubmit, formState: {errors} } = useForm();
+  const [accessToken, setAccessToken] = useState("");
+
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch(LOGIN_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        console.log('Login successful');
+        const data = await response.json();
+        setAccessToken(data.accessToken);
+        localStorage.setItem('accessToken', data.accessToken);
+        console.log(data.accessToken);
+        
+      } else {
+        console.log('Login failed :(');
+      }
+    } catch (error) {
+      console.log('There was an error logging into your account', error);
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit((data) => {
-      console.log(data);
-    })} className="bg-neutral-700 py-3 px-5 w-96">
+    <form onSubmit={handleSubmit(onSubmit)} className="bg-neutral-700 py-3 px-5 w-96">
       <h1 className='mb-2 text-3xl'>Login Form</h1>
       <div className='mb-1'>
         <p>Email</p>
