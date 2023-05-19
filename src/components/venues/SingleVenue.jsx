@@ -1,23 +1,21 @@
 import { useEffect, useState } from 'react';
 import { VENUES_URL } from '../../utils/ApiUrls';
 
-  const url = new URL(window.location.href);
-  const pathName = url.pathname;
-  const id = pathName.substring(pathName.lastIndexOf('/') + 1);
-
-  async function fetchData() {
-  const response = await fetch(`${VENUES_URL}/${id}`);
-  const json = await response.json();
-  return json;
-  }
-
 export function SingleVenue() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetchData().then(
-      result => setData(result));
-  }, []);
+    const fetchData = async () => {
+      const url = new URL(window.location.href);
+      const pathName = url.pathname;
+      const id = pathName.substring(pathName.lastIndexOf('/') + 1);
+
+      const response = await fetch(`${VENUES_URL}/${id}`);
+      const json = await response.json();
+      setData(json);
+    }
+    fetchData();
+  }, [window.location.href]);
 
   const dateObj = new Date(data.created);
   const year = dateObj.getFullYear();
