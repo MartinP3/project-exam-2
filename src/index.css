@@ -19,6 +19,6 @@ body {
   padding-bottom: 4rem;
 }
 
- form input {
+ form input, textarea {
   color: black;
 }
