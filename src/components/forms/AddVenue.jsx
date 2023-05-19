@@ -10,12 +10,15 @@ export function AddVenue() {
     name: "media",
   });
 
+  const token = localStorage.getItem('accessToken');
+
   const onSubmit = async (data) => {
     try {
       const response = await fetch(VENUES_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify(data),
       });
@@ -25,7 +28,11 @@ export function AddVenue() {
         const data = await response.json();
         console.log(data);
         
-      } else {
+      }
+      else if (response.status === 403) {
+        console.log('Sorry, you are not authorized to add a venue, please become a venue manger first');
+      }
+      else {
         console.log('Adding of venue failed :(');
         const data = await response.json();
         console.log(data);
