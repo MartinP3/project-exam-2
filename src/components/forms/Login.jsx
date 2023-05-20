@@ -35,13 +35,14 @@ export function LoginForm() {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="bg-neutral-700 py-3 px-5 w-96">
       <h1 className='mb-2 text-3xl'>Login Form</h1>
+      <h2 className='mb-2 text-md'>* are required</h2>
       <div className='mb-1'>
-        <p>Email</p>
+        <p>Email*</p>
         <input type="email" className='mb-1 py-1 px-0.5 w-full' {...register("email", { required: "Please enter a valid email.", pattern: { value: /[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$/, message: "Please enter a valid email"}})} placeholder="example@email.com"/>
         <p className='text-red-400 -mt-1'>{errors.email?.message}</p>
       </div>
       <div className='mb-1'>
-        <p>Password</p>
+        <p>Password*</p>
         <input type="password" className='mb-1 py-1 px-0.5 w-full' {...register("password", { required: "Please enter your password.", minLength: { value: 6, message: "Min length is 6" } })} placeholder="********"/>
         <p className='text-red-400 -mt-1'>{errors.password?.message}</p>
       </div>

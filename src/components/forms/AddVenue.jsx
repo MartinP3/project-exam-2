@@ -79,7 +79,7 @@ export function AddVenue() {
         </div>
         <div className='mb-1'>
           <p>Max guests*</p>
-          <input type="number" className='mb-1 py-1 px-0.5 w-full' placeholder="Guest Limit" {...register("maxGuests", {required: "Please put the max guest limit", valueAsNumber: true, min: { value: 1, message: "At least 1 please" }})} />
+          <input type="number" className='mb-1 py-1 px-0.5 w-full' placeholder="Guest Limit" {...register("maxGuests", {required: "Please put the max guest limit", valueAsNumber: true, min: { value: 1, message: "At least 1 please" }, max: { value: 99, message: "The limit is 99" }})} />
           <p className='text-red-400 -mt-1'>{errors.maxGuests?.message}</p>
         </div>
       </div>
