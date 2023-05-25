@@ -1,7 +1,5 @@
-import { RegisterForm } from '../components/forms/Register';
+import { RegisterForm } from "../components/forms/Register";
 
 export function RegisterPage() {
-  return (
-    <RegisterForm />
-  )
+  return <RegisterForm />;
 }

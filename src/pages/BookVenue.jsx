@@ -1,7 +1,5 @@
-import { BookVenue } from '../components/forms/BookVenue';
+import { BookVenue } from "../components/forms/BookVenue";
 
 export function BookVenuePage() {
-  return (
-    <BookVenue />
-  )
+  return <BookVenue />;
 }
