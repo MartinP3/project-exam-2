@@ -21,4 +21,5 @@ body {
 
  input, textarea {
   color: black;
+  border-radius: 5px;
 }
