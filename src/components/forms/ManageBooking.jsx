@@ -1,13 +1,9 @@
 import React, { useEffect, useState, useContext } from "react";
 import { BOOKINGS_URL } from "../../utils/ApiUrls";
 import { UserContext } from "../UserContext";
-import { set } from "date-fns";
 
 export function ManageBooking() {
   const [data, setData] = useState([]);
-  const [deleted, setDeleted] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [deleteStatus, setDeleteStatus] = useState("");
   const { user } = useContext(UserContext);
   const { token } = user;
 
@@ -38,30 +34,6 @@ export function ManageBooking() {
 
     fetchData();
   }, [id]);
-
-  const handleDelete = async () => {
-    const response = await fetch(`${BOOKINGS_URL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (response.ok) {
-      setDeleted(true);
-      setDeleteStatus("Booking is now deleted");
-      setShowModal(true);
-    } else {
-      setDeleteStatus("Failed to delete booking");
-      setShowModal(true);
-    }
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-    if (deleted) {
-      location.href = "/";
-    }
-  };
 
   const formatDate = (date) => {
     return new Date(date).toLocaleDateString("en-US", {
