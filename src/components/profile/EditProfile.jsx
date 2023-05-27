@@ -10,6 +10,8 @@ export function EditProfile() {
     setValue,
   } = useForm();
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const userName = window.location.pathname.substring(
     window.location.pathname.lastIndexOf("/") + 1
   );
@@ -30,6 +32,14 @@ export function EditProfile() {
 
           setValue("avatar", data.avatar);
           setValue("venueManager", data.venueManager);
+        } else if (
+          response.status === 400 ||
+          response.status === 401 ||
+          response.status === 402 ||
+          response.status === 403
+        ) {
+          const errorData = await response.json();
+          setErrorMessage(errorData.errors[0].message);
         } else {
           console.log("Failed to fetch the profile picture data");
         }
@@ -131,6 +141,7 @@ export function EditProfile() {
           <p className="text-green-400 -mt-1">{SuccessMessageManager}</p>
           <p className="text-red-400 -mt-1">{errors.url?.message}</p>
         </div>
+        <p className="text-red-400 my-2">{errorMessage}</p>
         <button
           className=' type="submit"
           className=" h-12 mt-2 w-full uppercase cursor-pointer text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"'
