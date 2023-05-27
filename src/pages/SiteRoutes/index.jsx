@@ -10,6 +10,8 @@ import { EditBookingPage } from "../EditBooking";
 import { EditVenuePage } from "../EditVenue";
 import { SingleProfile } from "../../components/profile/Profile";
 import { EditProfile } from "../../components/profile/EditProfile";
+import { ManageVenuesPage } from "../ManageVenues";
+import { ManageBookingPage } from "../ManageBooking";
 
 export function SiteRoutes() {
   return (
@@ -45,6 +47,14 @@ export function SiteRoutes() {
       <Route
         path="/venue/edit/:id"
         element={<EditVenuePage />}
+      />
+      <Route
+        path="/manage/venues"
+        element={<ManageVenuesPage />}
+      />
+      <Route
+        path="/manage/bookings/:id"
+        element={<ManageBookingPage />}
       />
       <Route
         path="/booking/:id"
