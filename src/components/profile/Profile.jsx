@@ -51,6 +51,20 @@ export function SingleProfile() {
           <h1 className="text-4xl text-center my-2">{data.name}</h1>
         </div>
         <h2 className=" text-3xl mb-2 mx-4 text-center">Bookings</h2>
+        {data.bookings && data.bookings.length > 0 && (
+          <div className="flex justify-center">
+            <button
+              className={`uppercase w-60 p-3 ${
+                showAllBookings
+                  ? "text-red-400 shadow-md shadow-red-400 hover:text-red-500 hover:shadow-red-500 mb-4"
+                  : "text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+              }`}
+              onClick={handleShowBookings}
+            >
+              {showAllBookings ? "Show Less" : "Show All"}
+            </button>
+          </div>
+        )}
         <div
           className={`w-full gap-6 grid ${
             !showAllBookings || "md:grid-cols-2 sm:grid-cols-1"
@@ -67,6 +81,11 @@ export function SingleProfile() {
                 <img
                   src={data.venue.media}
                   className="w-1/3 h-24"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://dummyimage.com/300x300/000/fff&text=403PICTURE";
+                  }}
                 />
                 <div className="flex flex-col w-1/3">
                   <p>{data.venue.name}</p>
@@ -83,21 +102,21 @@ export function SingleProfile() {
               </div>
             ))}
         </div>
-        {data.bookings && data.bookings.length > 0 && (
+        <h2 className=" text-3xl mb-2 mt-6 mx-4 text-center">Venues</h2>
+        {data.venues && data.venues.length > 0 && (
           <div className="flex justify-center">
             <button
-              className={`uppercase w-60 p-3 ${
-                showAllBookings
-                  ? "text-red-400 shadow-md shadow-red-400 hover:text-red-500 hover:shadow-red-500 mt-4"
+              className={`uppercase p-3 w-60 ${
+                showAllVenues
+                  ? "text-red-400 shadow-md shadow-red-400 hover:text-red-500 hover:shadow-red-500 mb-4"
                   : "text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
               }`}
-              onClick={handleShowBookings}
+              onClick={handleShowVenues}
             >
-              {showAllBookings ? "Show Less" : "Show All"}
+              {showAllVenues ? "Show Less" : "Show All"}
             </button>
           </div>
         )}
-        <h2 className=" text-3xl mb-2 mt-6 mx-4 text-center">Venues</h2>
         <div
           className={`w-full gap-6 grid ${
             !showAllVenues || "md:grid-cols-2 sm:grid-cols-1"
@@ -114,6 +133,11 @@ export function SingleProfile() {
                 <img
                   src={venue.media}
                   className="w-1/3 h-24"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src =
+                      "https://dummyimage.com/300x300/000/fff&text=403PICTURE";
+                  }}
                 />
                 <div className="flex flex-col w-1/3">
                   <p className="font-bold">{venue.name}</p>
@@ -130,20 +154,6 @@ export function SingleProfile() {
               </div>
             ))}
         </div>
-        {data.venues && data.venues.length > 0 && (
-          <div className="flex justify-center">
-            <button
-              className={`uppercase p-3 w-60 ${
-                showAllVenues
-                  ? "text-red-400 shadow-md shadow-red-400 hover:text-red-500 hover:shadow-red-500 mt-4"
-                  : "text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
-              }`}
-              onClick={handleShowVenues}
-            >
-              {showAllVenues ? "Show Less" : "Show All"}
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
