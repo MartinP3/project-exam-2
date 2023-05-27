@@ -5,7 +5,7 @@ export function Layout({ children }) {
   return (
     <>
       <Header />
-      <main className="flex justify-center gap-5">{children}</main>
+      <main className="flex gap-5 justify-center">{children}</main>
       <Footer />
     </>
   );
