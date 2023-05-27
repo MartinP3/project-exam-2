@@ -85,7 +85,7 @@ export function AddVenue() {
           rows={6}
           placeholder="Description of the venue"
           {...register("description", {
-            required: "Please describe the venue",
+            required: "Please describe the venue (min 20)",
             min: 20,
           })}
         />
@@ -231,7 +231,7 @@ export function AddVenue() {
       </div>
       <input
         type="submit"
-        className="p-3 mt-2 w-full cursor-pointer bg-gradient-to-r from-cyan-500 to-teal-500"
+        className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
       />
     </form>
   );
