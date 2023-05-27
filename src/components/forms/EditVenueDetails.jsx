@@ -15,6 +15,9 @@ export function EditVenue() {
     name: "media",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const token = localStorage.getItem("accessToken");
 
   const id = window.location.pathname.substring(
@@ -68,26 +71,49 @@ export function EditVenue() {
 
   const onSubmit = async (data) => {
     try {
+      const formData = {
+        ...data,
+        meta: {
+          wifi: data.wifi || false,
+          parking: data.parking || false,
+          breakfast: data.breakfast || false,
+          pets: data.pets || false,
+        },
+        location: {
+          address: data.address || "Unknown",
+          city: data.city || "Unknown",
+          zip: data.zip || "Unknown",
+          country: data.country || "Unknown",
+          continent: data.continent || "Unknown",
+        },
+      };
+
       const response = await fetch(`${VENUES_URL}/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        console.log("Venue updated successfully");
-        const data = await response.json();
-        console.log(data);
+        setSuccessMessage("Venue details are updated");
+      } else if (
+        response.status === 400 ||
+        response.status === 401 ||
+        response.status === 402 ||
+        response.status === 403
+      ) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.errors[0].message);
       } else {
-        console.log("Updating of venue failed :(");
-        const data = await response.json();
-        console.log(data);
+        console.log("Adding of venue failed :(");
+        const responseData = await response.json();
+        console.log(responseData);
       }
     } catch (error) {
-      console.log("There was an error updating your venue", error);
+      console.log("There was an error adding your venue", error);
     }
   };
 
@@ -234,8 +260,8 @@ export function EditVenue() {
           <input
             type="text"
             className="mb-1 py-1 px-0.5 w-12"
-            placeholder="4206"
-            {...register("zip", { valueAsNumber: true })}
+            placeholder="zip"
+            {...register("zip", {})}
           />
         </div>
       </div>
@@ -259,6 +285,8 @@ export function EditVenue() {
           />
         </div>
       </div>
+      <p className=" text-green-400">{successMessage}</p>
+      <p className="text-red-400">{errorMessage}</p>
       <input
         type="submit"
         className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"

@@ -16,6 +16,8 @@ export function EditBooking() {
   const [deleted, setDeleted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [deleteStatus, setDeleteStatus] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const token = localStorage.getItem("accessToken");
 
@@ -61,8 +63,15 @@ export function EditBooking() {
       });
 
       if (response.ok) {
-        const data = await response.json();
-        console.log(data);
+        setSuccessMessage("Booking info is now updated");
+      } else if (
+        response.status === 400 ||
+        response.status === 401 ||
+        response.status === 402 ||
+        response.status === 403
+      ) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.errors[0].message);
       } else {
         const data = await response.json();
         console.log(data);
@@ -149,7 +158,9 @@ export function EditBooking() {
           />
         </div>
       </div>
-      <div className="flex gap-4 mt-4 justify-between">
+      <p className="text-green-400 my-2">{successMessage}</p>
+      <p className="text-red-400 my-2">{errorMessage}</p>
+      <div className="flex gap-4 justify-between">
         <input
           type="submit"
           className="p-3 w-40 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"

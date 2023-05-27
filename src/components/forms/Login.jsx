@@ -10,6 +10,8 @@ export function LoginForm() {
     formState: { errors },
   } = useForm();
   const { setUser } = useContext(UserContext);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const onSubmit = async (data) => {
     try {
@@ -36,6 +38,15 @@ export function LoginForm() {
           name: name,
           venueManager: venueManager,
         }));
+        setSuccessMessage("Login successful");
+      } else if (
+        response.status === 400 ||
+        response.status === 401 ||
+        response.status === 402 ||
+        response.status === 403
+      ) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.errors[0].message);
       } else {
         console.log("Login failed :(");
       }
@@ -80,6 +91,8 @@ export function LoginForm() {
         />
         <p className="text-red-400 -mt-1">{errors.password?.message}</p>
       </div>
+      <p className="text-green-400 my-2">{successMessage}</p>
+      <p className="text-red-400 my-2">{errorMessage}</p>
       <input
         type="submit"
         className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"

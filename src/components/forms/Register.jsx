@@ -9,6 +9,8 @@ export function RegisterForm() {
     formState: { errors },
   } = useForm();
 
+  const [errorMessage, setErrorMessage] = useState("");
+
   const onSubmit = async (data) => {
     try {
       const response = await fetch(REGISTER_URL, {
@@ -22,6 +24,14 @@ export function RegisterForm() {
       if (response.ok) {
         console.log("Registration successful");
         location.href = "/login";
+      } else if (
+        response.status === 400 ||
+        response.status === 401 ||
+        response.status === 402 ||
+        response.status === 403
+      ) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.errors[0].message);
       } else {
         console.log("Registration failed :(");
       }
@@ -104,6 +114,7 @@ export function RegisterForm() {
           {...register("venueManager", {})}
         />
       </div>
+      <p className="my-2 text-red-400">{errorMessage}</p>
       <input
         type="submit"
         className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"

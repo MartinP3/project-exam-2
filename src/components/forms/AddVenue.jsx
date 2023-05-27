@@ -1,5 +1,6 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { VENUES_URL } from "../../utils/ApiUrls";
+import { useState } from "react";
 
 export function AddVenue() {
   const {
@@ -13,6 +14,8 @@ export function AddVenue() {
     name: "media",
   });
 
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const token = localStorage.getItem("accessToken");
 
   const onSubmit = async (data) => {
@@ -44,13 +47,15 @@ export function AddVenue() {
       });
 
       if (response.ok) {
-        console.log("Venue added successfully");
-        const responseData = await response.json();
-        console.log(responseData);
-      } else if (response.status === 403) {
-        console.log(
-          "Sorry, you are not authorized to add a venue. Please become a venue manager first."
-        );
+        setSuccessMessage("Venue added successfully");
+      } else if (
+        response.status === 400 ||
+        response.status === 401 ||
+        response.status === 402 ||
+        response.status === 403
+      ) {
+        const errorData = await response.json();
+        setErrorMessage(errorData.errors[0].message);
       } else {
         console.log("Adding of venue failed :(");
         const responseData = await response.json();
@@ -229,6 +234,8 @@ export function AddVenue() {
           />
         </div>
       </div>
+      <p className="text-green-400">{successMessage}</p>
+      <p className="text-red-400">{errorMessage}</p>
       <input
         type="submit"
         className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
