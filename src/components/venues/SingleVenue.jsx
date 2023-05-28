@@ -64,7 +64,7 @@ export function SingleVenue() {
   };
 
   return (
-    <div className="pb-4 flex flex-col gap-3 max-w-lg">
+    <div className=" p-1 pb-4 flex flex-col gap-3 max-w-lg">
       <div className="flex justify-center">
         <img
           src={data.media}
@@ -116,12 +116,12 @@ export function SingleVenue() {
               <p>{data.owner.name}</p>
               <p>{data.owner.email}</p>
             </div>
-            <p>
-              {data.owner.name} is your host for this venue, they're very much
-              looking forward to getting paid ${data.price} a day! have a nice
-              stay!
-            </p>
           </div>
+          <p className="mt-2">
+            {data.owner.name} is your host for this venue, they're very much
+            looking forward to getting paid ${data.price} a day! have a nice
+            stay!
+          </p>
         </div>
       )}
       <div className="mt-6 flex text-center justify-center gap-4">
@@ -129,13 +129,13 @@ export function SingleVenue() {
           <>
             <Link
               to={`/venue/edit/${id}`}
-              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+              className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-blue-400 shadow-blue-400 hover:text-blue-200 hover:shadow-blue-200"
             >
               Edit Venue
             </Link>
             <button
               onClick={handleDelete}
-              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-red-400 shadow-red-400 hover:text-red-500 hover:shadow-red-500"
+              className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-red-400 shadow-red-400 hover:text-red-500 hover:shadow-red-500"
             >
               Delete Venue
             </button>
@@ -143,7 +143,7 @@ export function SingleVenue() {
         ) : (
           <Link
             to={`/booking/${id}`}
-            className="p-3 w-2/3 uppercase cursor-pointer shadow-md shadow-green-400"
+            className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
           >
             Book Venue
           </Link>
