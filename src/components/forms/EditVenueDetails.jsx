@@ -125,8 +125,9 @@ export function EditVenue() {
       <h1 className="text-3xl">Edit venue</h1>
       <h2 className="mb-2 text-md">* are required</h2>
       <div className="mb-1">
-        <p>Name*</p>
+        <label htmlFor="name">Name*</label>
         <input
+          id="name"
           type="name"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("name", { required: "Please enter a name" })}
@@ -135,8 +136,9 @@ export function EditVenue() {
         <p className="text-red-400 -mt-1">{errors.name?.message}</p>
       </div>
       <div className="mb-1">
-        <p>Description*</p>
+        <label htmlFor="description">Description*</label>
         <textarea
+          id="description"
           className="mb-1 py-1 px-0.5 w-full"
           placeholder="Description of the venue"
           rows={6}
@@ -148,10 +150,11 @@ export function EditVenue() {
         <p className="text-red-400 -mt-1">{errors.description?.message}</p>
       </div>
       <div className="mb-1">
-        <p>Media</p>
+        <label htmlFor="media">Media</label>
         {fields.map((item, index) => (
           <div key={item.id}>
             <input
+              id="media"
               type="url"
               className="py-1 px-0.5 w-full"
               placeholder="Media"
@@ -177,8 +180,9 @@ export function EditVenue() {
       </div>
       <div className="flex gap-4">
         <div className="mb-1">
-          <p>Price*</p>
+          <label htmlFor="price">Price*</label>
           <input
+            id="price"
             type="number"
             className="mb-1 py-1 px-0.5 w-full"
             placeholder="499"
@@ -191,8 +195,9 @@ export function EditVenue() {
           <p className="text-red-400 -mt-1">{errors.price?.message}</p>
         </div>
         <div className="mb-1">
-          <p>Max guests*</p>
+          <label htmlFor="maxGuests">Max guests*</label>
           <input
+            id="maxGuests"
             type="number"
             className="mb-1 py-1 px-0.5 w-full"
             placeholder="Guest Limit"
@@ -208,29 +213,53 @@ export function EditVenue() {
       </div>
       <div className="flex gap-6 justify-start">
         <div>
-          <p>Wifi</p>
+          <label
+            htmlFor="wifi"
+            className="block"
+          >
+            Wifi
+          </label>
           <input
+            id="wifi"
             type="checkbox"
             {...register("wifi", {})}
           />
         </div>
         <div>
-          <p>Parking</p>
+          <label
+            htmlFor="parking"
+            className="block"
+          >
+            Parking
+          </label>
           <input
+            id="parking"
             type="checkbox"
             {...register("parking", {})}
           />
         </div>
         <div>
-          <p>Pets</p>
+          <label
+            htmlFor="pets"
+            className="block"
+          >
+            Pets
+          </label>
           <input
+            id="pets"
             type="checkbox"
             {...register("pets", {})}
           />
         </div>
         <div>
-          <p>Breakfast</p>
+          <label
+            htmlFor="breakfast"
+            className="block"
+          >
+            Breakfast
+          </label>
           <input
+            id="breakfast"
             type="checkbox"
             {...register("breakfast", {})}
           />
@@ -238,8 +267,9 @@ export function EditVenue() {
       </div>
       <div className="flex gap-4">
         <div className="mb-1">
-          <p>Address</p>
+          <label htmlFor="address">Address</label>
           <input
+            id="address"
             type="text"
             className="mb-1 py-1 px-0.5 w-32 md:w-40"
             placeholder="Shawtystreet 42"
@@ -247,8 +277,9 @@ export function EditVenue() {
           />
         </div>
         <div className="mb-1">
-          <p>City</p>
+          <label htmlFor="city">City</label>
           <input
+            id="city"
             type="text"
             className="mb-1 py-1 px-0.5 w-full"
             placeholder="Cooltown"
@@ -256,8 +287,9 @@ export function EditVenue() {
           />
         </div>
         <div className="mb-1">
-          <p>Zip</p>
+          <label htmlFor="zip">Zip</label>
           <input
+            id="zip"
             type="text"
             className="mb-1 py-1 px-0.5 w-12"
             placeholder="zip"
@@ -267,8 +299,9 @@ export function EditVenue() {
       </div>
       <div className="flex gap-4">
         <div className="mb-1">
-          <p>Country</p>
+          <label htmlFor="country">Country</label>
           <input
+            id="country"
             type="text"
             className="mb-1 py-1 px-0.5 w-40"
             placeholder="Atlantis"
@@ -276,8 +309,9 @@ export function EditVenue() {
           />
         </div>
         <div className="mb-1">
-          <p>Continent</p>
+          <label htmlFor="continent">Continent</label>
           <input
+            id="continent"
             type="text"
             className="mb-1 py-1 px-0.5 w-full"
             placeholder="Antarctica"

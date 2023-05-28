@@ -1,4 +1,4 @@
-import { ManageBooking } from "../components/forms/ManageBooking";
+import { ManageBooking } from "../components/ManageBooking";
 
 export function ManageBookingPage() {
   return <ManageBooking />;

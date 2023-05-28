@@ -124,8 +124,14 @@ export function EditBooking() {
       <h1 className="text-3xl">Edit booking</h1>
       <h2 className="mb-2 text-md">* are required</h2>
       <div className="mb-2">
-        <p>Guests*</p>
+        <label
+          htmlFor="guests"
+          className="block"
+        >
+          Guests*
+        </label>
         <input
+          id="guests"
           type="number"
           className="mb-1 py-1 px-0.5 w-20"
           placeholder="guests"
@@ -140,8 +146,9 @@ export function EditBooking() {
       </div>
       <div className="flex gap-4">
         <div>
-          <p>Start date*</p>
+          <label htmlFor="dateFrom">Start date*</label>
           <DatePicker
+            id="dateFrom"
             className="mb-1 py-1 px-0.5 w-full"
             dateFormat="yyyy-MM-dd"
             selected={startDate}
@@ -149,8 +156,9 @@ export function EditBooking() {
           />
         </div>
         <div>
-          <p>End date*</p>
+          <label htmlFor="dateTo">End date*</label>
           <DatePicker
+            id="dateTo"
             className="mb-1 py-1 px-0.5 w-full"
             dateFormat="yyyy-MM-dd"
             selected={endDate}

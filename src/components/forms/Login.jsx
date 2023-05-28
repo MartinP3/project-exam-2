@@ -64,8 +64,9 @@ export function LoginForm() {
       <h1 className="mb-2 text-3xl">Login Form</h1>
       <h2 className="mb-2 text-md">* are required</h2>
       <div className="mb-1">
-        <p>Email*</p>
+        <label htmlFor="email">Email*</label>
         <input
+          id="email"
           type="email"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("email", {
@@ -80,8 +81,9 @@ export function LoginForm() {
         <p className="text-red-400 -mt-1">{errors.email?.message}</p>
       </div>
       <div className="mb-1">
-        <p>Password*</p>
+        <label htmlFor="password">Password*</label>
         <input
+          id="password"
           type="password"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("password", {

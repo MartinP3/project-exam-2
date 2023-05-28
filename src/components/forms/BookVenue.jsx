@@ -74,11 +74,17 @@ export function BookVenue() {
       <h1 className="text-3xl">Book venue</h1>
       <h2 className="mb-2 text-md">* are required</h2>
       <div className="mb-2">
-        <p>Guests*</p>
+        <label
+          htmlFor="guests"
+          className="block"
+        >
+          Guests*
+        </label>
         <input
+          id="guests"
           type="number"
           className="mb-1 py-1 px-0.5 w-20"
-          placeholder="guests"
+          placeholder="amount"
           {...register("guests", {
             required: "There is a max limit of X",
             valueAsNumber: true,
@@ -90,16 +96,18 @@ export function BookVenue() {
       </div>
       <div className="flex gap-4">
         <div>
-          <p>Start date*</p>
+          <label htmlFor="dateFrom">Start date*</label>
           <DatePicker
+            id="dateFrom"
             className="mb-1 py-1 px-0.5 w-full"
             selected={startDate}
             onChange={handleStartDateChange}
           />
         </div>
         <div>
-          <p>End date*</p>
+          <label htmlFor="dateTo">End date*</label>
           <DatePicker
+            id="dateTo"
             className="mb-1 py-1 px-0.5 w-full"
             selected={endDate}
             onChange={handleEndDateChange}
