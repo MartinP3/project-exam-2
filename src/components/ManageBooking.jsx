@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { BOOKINGS_URL } from "../../utils/ApiUrls";
-import { UserContext } from "../UserContext";
+import { BOOKINGS_URL } from "../utils/ApiUrls";
+import { UserContext } from "./UserContext";
 
 export function ManageBooking() {
   const [data, setData] = useState([]);
