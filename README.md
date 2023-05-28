@@ -8,12 +8,14 @@ There will be 2 sides of this site, a customer facing one where they can book ve
 
 Gantt Chart: https://github.com/users/MartinP3/projects/1/views/1
 
-Design prototype
+Design prototype https://www.figma.com/file/4uNJ0au0pgR8O6rqBa6umz/Holidaze-Wireframe?type=design&node-id=0%3A1&t=CvriDf5Vu0ITomBm-1
 
-Style guide
+Style guide: https://www.figma.com/file/4uNJ0au0pgR8O6rqBa6umz/Holidaze-Wireframe?type=design&node-id=1-3&t=CvriDf5Vu0ITomBm-0
 
-Kanban project board
+Kanban project board: https://i.imgur.com/w8ZKov7.png
 
 Repository link: https://github.com/MartinP3/project-exam-2
 
-Hosted application demo link https://exquisite-bonbon-119da2.netlify.app/
+Hosted application demo link: https://exquisite-bonbon-119da2.netlify.app/
+
+
