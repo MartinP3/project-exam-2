@@ -32,3 +32,26 @@ Hosted application demo link: https://exquisite-bonbon-119da2.netlify.app/
 - React-router
 - React-datepicker
 - Tailwindcss
+
+# Installing and running this app
+
+## Installing
+
+```
+Clone the repository with GitHub Desktop
+```
+
+Or
+
+```bash
+git clone https://github.com/MartinP3/project-exam-2.git
+```
+
+## Running the app
+
+```
+npm i
+```
+```
+npm run dev
+```
