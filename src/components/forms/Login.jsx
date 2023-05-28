@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { LOGIN_URL } from "../../utils/ApiUrls";
 import { UserContext } from "../UserContext";
@@ -39,6 +39,7 @@ export function LoginForm() {
           venueManager: venueManager,
         }));
         setSuccessMessage("Login successful");
+        location.href = "/";
       } else if (
         response.status === 400 ||
         response.status === 401 ||
@@ -58,7 +59,7 @@ export function LoginForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="py-3 px-5 w-96"
+      className="py-3 px-5 w-80 sm:w-96"
     >
       <h1 className="mb-2 text-3xl">Login Form</h1>
       <h2 className="mb-2 text-md">* are required</h2>

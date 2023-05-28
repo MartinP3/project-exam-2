@@ -120,7 +120,7 @@ export function EditVenue() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="py-3 px-5 w-96"
+      className="py-3 px-5 w-80 sm:w-96"
     >
       <h1 className="text-3xl">Edit venue</h1>
       <h2 className="mb-2 text-md">* are required</h2>
@@ -241,7 +241,7 @@ export function EditVenue() {
           <p>Address</p>
           <input
             type="text"
-            className="mb-1 py-1 px-0.5 w-40"
+            className="mb-1 py-1 px-0.5 w-32 md:w-40"
             placeholder="Shawtystreet 42"
             {...register("address", {})}
           />
@@ -289,7 +289,7 @@ export function EditVenue() {
       <p className="text-red-400">{errorMessage}</p>
       <input
         type="submit"
-        className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+        className="p-3 my-4 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
       />
     </form>
   );

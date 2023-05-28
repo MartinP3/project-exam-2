@@ -238,7 +238,7 @@ export function AddVenue() {
       <p className="text-red-400">{errorMessage}</p>
       <input
         type="submit"
-        className="p-3 mt-2 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+        className="p-3 my-4 uppercase cursor-pointer w-full text-green-400 shadow-md shadow-green-400 hover:text-green-500 hover:shadow-green-500"
       />
     </form>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { REGISTER_URL } from "../../utils/ApiUrls";
 
@@ -43,7 +43,7 @@ export function RegisterForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="py-3 px-5 w-96"
+      className="py-3 px-5 w-80 sm:w-96"
     >
       <h1 className="mb-2 text-3xl">Register Form</h1>
       <h2 className="mb-2 text-md">* are required</h2>
@@ -77,7 +77,7 @@ export function RegisterForm() {
             required: "Please enter a valid email.",
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/,
-              message: "Please enter stud.noroff.no email.",
+              message: "Please use a stud.noroff.no email.",
             },
           })}
           placeholder="example@email.com"

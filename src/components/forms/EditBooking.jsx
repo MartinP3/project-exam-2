@@ -119,7 +119,7 @@ export function EditBooking() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="py-3 px-5 w-96"
+      className="py-3 px-5 w-80 sm:w-96"
     >
       <h1 className="text-3xl">Edit booking</h1>
       <h2 className="mb-2 text-md">* are required</h2>
