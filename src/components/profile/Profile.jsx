@@ -14,7 +14,10 @@ export function SingleProfile() {
     window.location.pathname.lastIndexOf("/") + 1
   );
   const endpoints = "?_bookings=true&_venues=true";
-
+  /**
+   * The useEffect hook is used to fetch data from the API, and renders content
+   * for the profile itself, venues and bookings that have been created and made.
+   */
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`${PROFILES_URL}/${userName}${endpoints}`, {

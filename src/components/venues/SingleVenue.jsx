@@ -2,7 +2,9 @@ import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { VENUES_URL } from "../../utils/ApiUrls";
 import { UserContext } from "../UserContext";
-
+/**
+ * Returns a single venue and its details.
+ */
 export function SingleVenue() {
   const [data, setData] = useState([]);
   const [deleted, setDeleted] = useState(false);

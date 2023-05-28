@@ -6,7 +6,7 @@ const AUTH_URL = `${BASE_URL}/auth`;
 export const LOGIN_URL = `${AUTH_URL}/login`;
 export const REGISTER_URL = `${AUTH_URL}/register`;
 
-export const PROFILES_URL = `${BASE_URL}/profiles`; // Get all profiles
+export const PROFILES_URL = `${BASE_URL}/profiles`;
 
 export const VENUES_URL = `${BASE_URL}/venues`;
 

@@ -2,6 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { BOOKINGS_URL } from "../utils/ApiUrls";
 import { UserContext } from "./UserContext";
 
+/**
+ *
+ * @returns a singular booking that someone has to one of the user's venues.
+ */
 export function ManageBooking() {
   const [data, setData] = useState([]);
   const { user } = useContext(UserContext);

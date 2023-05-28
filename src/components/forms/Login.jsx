@@ -12,7 +12,11 @@ export function LoginForm() {
   const { setUser } = useContext(UserContext);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
+  /**
+   * This is the function that handles the login form submission.
+   * And with UserContext, we can set the user data to the context and use it in other components
+   * and remember the user is logged in and etc.
+   */
   const onSubmit = async (data) => {
     try {
       const response = await fetch(LOGIN_URL, {

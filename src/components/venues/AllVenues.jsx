@@ -9,6 +9,9 @@ async function fetchData() {
   return json;
 }
 
+/**
+ * @returns all the venues and renders them.
+ */
 export function VenuesList() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");

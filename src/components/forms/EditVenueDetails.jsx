@@ -23,7 +23,11 @@ export function EditVenue() {
   const id = window.location.pathname.substring(
     window.location.pathname.lastIndexOf("/") + 1
   );
-
+  /**
+   * This useEffect hook is used to fetch the venue data from the API and then
+   * set the values of the form fields to the data that was fetched so that the user
+   * doesn't have to fill in everything again, allowing easier changes to be made.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
