@@ -10,7 +10,10 @@ export function RegisterForm() {
   } = useForm();
 
   const [errorMessage, setErrorMessage] = useState("");
-
+  /**
+   * This is where the data gets sent to the API and the user
+   * gets redirected to the login page on successful registration.
+   */
   const onSubmit = async (data) => {
     try {
       const response = await fetch(REGISTER_URL, {
@@ -25,6 +28,10 @@ export function RegisterForm() {
         console.log("Registration successful");
         location.href = "/login";
       } else if (
+        /*
+        This is where errors get handled and displayed accordingly to the user so that they
+        can know what went wrong and how to fix it.
+        */
         response.status === 400 ||
         response.status === 401 ||
         response.status === 402 ||

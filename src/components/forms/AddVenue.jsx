@@ -20,6 +20,7 @@ export function AddVenue() {
 
   const onSubmit = async (data) => {
     try {
+      // So that we can send the data to the API in the correct format
       const formData = {
         ...data,
         meta: {
@@ -49,6 +50,10 @@ export function AddVenue() {
       if (response.ok) {
         setSuccessMessage("Venue added successfully");
       } else if (
+        /*
+        This is where errors get handled and displayed accordingly to the user so that they
+        can know what went wrong and how to fix it.
+        */
         response.status === 400 ||
         response.status === 401 ||
         response.status === 402 ||

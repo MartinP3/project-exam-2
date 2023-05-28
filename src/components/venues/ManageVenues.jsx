@@ -2,7 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import { UserContext } from "../UserContext";
 import { PROFILES_URL, VENUES_URL } from "../../utils/ApiUrls";
 import { Link } from "react-router-dom";
-
+/**
+ * @returns all the venues and bookings for the logged in user.
+ */
 export function ManageVenues() {
   const [data, setData] = useState([]);
   const [venueInfo, setVenueInfo] = useState([]);
@@ -33,7 +35,10 @@ export function ManageVenues() {
 
     fetchData();
   }, [name]);
-
+  /**
+   * venues and venueIds are used to fetch the venues' details as long as
+   * they have a single booking.
+   */
   const venues = data.venues;
   const venueIds = venues ? venues.map((venue) => venue.id) : [];
 

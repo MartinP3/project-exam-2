@@ -24,7 +24,11 @@ export function EditBooking() {
   const id = window.location.pathname.substring(
     window.location.pathname.lastIndexOf("/") + 1
   );
-
+  /**
+   * This useEffect hook is used to fetch the booking data from the API and then
+   * set the values of the form fields to the data that was fetched so that the user
+   * doesn't have to fill in everything again, allowing easier changes to be made.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -65,6 +69,10 @@ export function EditBooking() {
       if (response.ok) {
         setSuccessMessage("Booking info is now updated");
       } else if (
+        /*
+        This is where errors get handled and displayed accordingly to the user so that they
+        can know what went wrong and how to fix it.
+        */
         response.status === 400 ||
         response.status === 401 ||
         response.status === 402 ||

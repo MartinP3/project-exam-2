@@ -18,7 +18,11 @@ export function BookVenue() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const token = localStorage.getItem("accessToken");
-
+  /**
+   * @param {Object} data - The data that is being sent to the API.
+   * @returns {Promise} - Returns a promise that resolves when the booking is successful.
+   * It grabs the url from the window and gets the venueId from it. Then it creates a new object
+   */
   const onSubmit = async (data) => {
     try {
       const venueId = window.location.pathname.substring(
@@ -39,6 +43,10 @@ export function BookVenue() {
       if (response.ok) {
         setSuccessMessage("Venue successfully booked");
       } else if (
+        /*
+        This is where errors get handled and displayed accordingly to the user so that they
+        can know what went wrong and how to fix it.
+        */
         response.status === 400 ||
         response.status === 401 ||
         response.status === 402 ||
@@ -55,7 +63,7 @@ export function BookVenue() {
       console.log("There was an error booking the venue", error);
     }
   };
-
+  // Properly handles the datepicker so that the API can understand what it receives.
   const handleStartDateChange = (date) => {
     setStartDate(date);
     setValue("dateFrom", date, true);

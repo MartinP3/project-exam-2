@@ -16,7 +16,11 @@ export function EditProfile() {
     window.location.pathname.lastIndexOf("/") + 1
   );
 
-  // Avatar url fetching
+  /**
+   * This useEffect hook is used to fetch the profile picture data from the API and then
+   * set the values of the form fields to the data that was fetched so that the user
+   * doesn't have to fill in everything again, allowing easier changes to be made.
+   */
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -33,6 +37,10 @@ export function EditProfile() {
           setValue("avatar", data.avatar);
           setValue("venueManager", data.venueManager);
         } else if (
+          /*
+        This is where errors get handled and displayed accordingly to the user so that they
+        can know what went wrong and how to fix it.
+        */
           response.status === 400 ||
           response.status === 401 ||
           response.status === 402 ||
@@ -58,7 +66,10 @@ export function EditProfile() {
   const [SuccessMessageAvatar, setSuccessMessageAvatar] = useState("");
   const [SuccessMessageManager, setSuccessMessageManager] = useState("");
 
-  // Avatar url updating
+  /**
+   * This function is used to update the profile picture of the user.
+   * The prior function grabs and inserts the old url, if  any, into the form field.
+   */
   const onSubmitAvatar = async (data) => {
     try {
       const response = await fetch(`${PROFILES_URL}/${userName}/${params}`, {
@@ -80,7 +91,9 @@ export function EditProfile() {
     }
   };
 
-  // Manager status updating
+  /**
+   * This function is used to update the manager status of the user.
+   */
   const onSubmitManager = async (data) => {
     try {
       const response = await fetch(`${PROFILES_URL}/${userName}`, {
