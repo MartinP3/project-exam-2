@@ -64,7 +64,7 @@ export function SingleVenue() {
   };
 
   return (
-    <div className="pb-4 flex flex-col gap-3 max-w-lg">
+    <div className=" p-1 pb-4 flex flex-col gap-3 max-w-lg">
       <div className="flex justify-center">
         <img
           src={data.media}
@@ -95,7 +95,7 @@ export function SingleVenue() {
         )}
       </div>
       {data.owner && (
-        <div>
+        <div class>
           <h2 className=" text-2xl mt-4 mb-1">Meet your host</h2>
           <div className="flex gap-2">
             <img
@@ -116,12 +116,12 @@ export function SingleVenue() {
               <p>{data.owner.name}</p>
               <p>{data.owner.email}</p>
             </div>
-            <p>
-              {data.owner.name} is your host for this venue, they're very much
-              looking forward to getting paid ${data.price} a day! have a nice
-              stay!
-            </p>
           </div>
+          <p className="mt-2">
+            {data.owner.name} is your host for this venue, they're very much
+            looking forward to getting paid ${data.price} a day! have a nice
+            stay!
+          </p>
         </div>
       )}
       <div className="mt-6 flex text-center justify-center gap-4">
@@ -129,7 +129,7 @@ export function SingleVenue() {
           <>
             <Link
               to={`/venue/edit/${id}`}
-              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-blue-400 shadow-blue-400 hover:text-blue-200 hover:shadow-blue-200"
             >
               Edit Venue
             </Link>
@@ -143,7 +143,7 @@ export function SingleVenue() {
         ) : (
           <Link
             to={`/booking/${id}`}
-            className="p-3 w-2/3 uppercase cursor-pointer shadow-md shadow-green-400"
+            className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
           >
             Book Venue
           </Link>
