@@ -95,7 +95,7 @@ export function SingleVenue() {
         )}
       </div>
       {data.owner && (
-        <div class>
+        <div>
           <h2 className=" text-2xl mt-4 mb-1">Meet your host</h2>
           <div className="flex gap-2">
             <img
@@ -129,13 +129,13 @@ export function SingleVenue() {
           <>
             <Link
               to={`/venue/edit/${id}`}
-              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-blue-400 shadow-blue-400 hover:text-blue-200 hover:shadow-blue-200"
+              className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-blue-400 shadow-blue-400 hover:text-blue-200 hover:shadow-blue-200"
             >
               Edit Venue
             </Link>
             <button
               onClick={handleDelete}
-              className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-red-400 shadow-red-400 hover:text-red-500 hover:shadow-red-500"
+              className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-red-400 shadow-red-400 hover:text-red-500 hover:shadow-red-500"
             >
               Delete Venue
             </button>
@@ -143,7 +143,7 @@ export function SingleVenue() {
         ) : (
           <Link
             to={`/booking/${id}`}
-            className="p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
+            className="mb-4 p-3 w-2/3 uppercase cursor-pointer shadow-md text-green-400 shadow-green-400 hover:text-green-500 hover:shadow-green-500"
           >
             Book Venue
           </Link>

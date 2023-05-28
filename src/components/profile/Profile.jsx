@@ -74,7 +74,7 @@ export function SingleProfile() {
             data.bookings.map((data, index) => (
               <div
                 key={data.id}
-                className={`w-full flex flex-row gap-4 mx-4 ${
+                className={`w-full flex flex-row gap-4 p-1 ${
                   showAllBookings || index < 0 ? "" : "hidden"
                 }`}
               >
@@ -118,7 +118,7 @@ export function SingleProfile() {
           </div>
         )}
         <div
-          className={`w-full gap-6 grid ${
+          className={`w-full gap-6 grid p-1 ${
             !showAllVenues || "md:grid-cols-2 sm:grid-cols-1"
           }`}
         >
@@ -126,7 +126,7 @@ export function SingleProfile() {
             data.venues.map((venue, index) => (
               <div
                 key={venue.id}
-                className={`w-full flex flex-row gap-4 mx-4 ${
+                className={`w-full flex flex-row gap-4 ${
                   showAllVenues || index < 0 ? "" : "hidden"
                 }`}
               >

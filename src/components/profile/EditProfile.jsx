@@ -107,7 +107,7 @@ export function EditProfile() {
     <div className="flex flex-col">
       <form
         onSubmit={handleSubmit(onSubmitAvatar)}
-        className="py-3 px-5 w-96"
+        className="py-3 px-5 w-80 sm:w-96"
       >
         <div className="mb-2">
           <p>Avatar</p>
@@ -129,7 +129,7 @@ export function EditProfile() {
       </form>
       <form
         onSubmit={handleSubmit(onSubmitManager)}
-        className="py-3 px-5 w-96"
+        className="py-3 px-5"
       >
         <div className="mb-2">
           <p>Venue Manager</p>
