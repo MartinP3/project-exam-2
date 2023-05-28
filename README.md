@@ -16,4 +16,4 @@ Kanban project board
 
 Repository link: https://github.com/MartinP3/project-exam-2
 
-Hosted application demo link
+Hosted application demo link https://exquisite-bonbon-119da2.netlify.app/
