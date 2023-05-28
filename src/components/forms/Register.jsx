@@ -48,8 +48,9 @@ export function RegisterForm() {
       <h1 className="mb-2 text-3xl">Register Form</h1>
       <h2 className="mb-2 text-md">* are required</h2>
       <div className="mb-1">
-        <p>Name*</p>
+        <label htmlFor="name">Name*</label>
         <input
+          id="name"
           type="text"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("name", {
@@ -69,8 +70,9 @@ export function RegisterForm() {
         <p className="text-red-400 -mt-1">{errors.name?.message}</p>
       </div>
       <div className="mb-1">
-        <p>Email*</p>
+        <label htmlFor="email">Email*</label>
         <input
+          id="email"
           type="email"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("email", {
@@ -85,8 +87,9 @@ export function RegisterForm() {
         <p className="text-red-400 -mt-1">{errors.email?.message}</p>
       </div>
       <div className="mb-1">
-        <p>Password*</p>
+        <label htmlFor="password">Password*</label>
         <input
+          id="password"
           type="password"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("password", {
@@ -98,8 +101,9 @@ export function RegisterForm() {
         <p className="text-red-400 -mt-1">{errors.password?.message}</p>
       </div>
       <div className="mb-2">
-        <p>Avatar</p>
+        <label htmlFor="avatar">Avatar</label>
         <input
+          id="avatar"
           type="url"
           className="mb-1 py-1 px-0.5 w-full"
           {...register("url")}
@@ -108,8 +112,14 @@ export function RegisterForm() {
         <p className="text-red-400 -mt-1">{errors.url?.message}</p>
       </div>
       <div className="mb-2">
-        <p>Venue Manager</p>
+        <label
+          htmlFor="venueManager"
+          className="block"
+        >
+          Venue Manager
+        </label>
         <input
+          id="venueManager"
           type="checkbox"
           {...register("venueManager", {})}
         />

@@ -110,9 +110,10 @@ export function EditProfile() {
         className="py-3 px-5 w-80 sm:w-96"
       >
         <div className="mb-2">
-          <p>Avatar</p>
+          <label htmlFor="avatar">Avatar</label>
           <input
             type="url"
+            id="avatar"
             className="mb-1 py-1 px-0.5 w-full"
             {...register("avatar")}
             placeholder="Avatar url"
@@ -132,8 +133,14 @@ export function EditProfile() {
         className="py-3 px-5"
       >
         <div className="mb-2">
-          <p>Venue Manager</p>
+          <label
+            htmlFor="venueManager"
+            className="block"
+          >
+            Venue Manager
+          </label>
           <input
+            id="venueManager"
             type="checkbox"
             className="mb-1"
             {...register("venueManager")}
