@@ -152,6 +152,7 @@ export function EditBooking() {
             className="mb-1 py-1 px-0.5 w-full"
             dateFormat="yyyy-MM-dd"
             selected={startDate}
+            minDate={new Date()}
             onChange={handleStartDateChange}
           />
         </div>
@@ -162,6 +163,7 @@ export function EditBooking() {
             className="mb-1 py-1 px-0.5 w-full"
             dateFormat="yyyy-MM-dd"
             selected={endDate}
+            minDate={new Date()}
             onChange={handleEndDateChange}
           />
         </div>

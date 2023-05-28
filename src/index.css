@@ -19,7 +19,8 @@ body {
   padding-bottom: 4rem;
 }
 
- input, textarea {
+input,
+textarea {
   color: black;
   border-radius: 5px;
 }

@@ -101,6 +101,7 @@ export function BookVenue() {
             id="dateFrom"
             className="mb-1 py-1 px-0.5 w-full"
             selected={startDate}
+            minDate={new Date()}
             onChange={handleStartDateChange}
           />
         </div>
@@ -110,6 +111,7 @@ export function BookVenue() {
             id="dateTo"
             className="mb-1 py-1 px-0.5 w-full"
             selected={endDate}
+            minDate={new Date()}
             onChange={handleEndDateChange}
           />
         </div>

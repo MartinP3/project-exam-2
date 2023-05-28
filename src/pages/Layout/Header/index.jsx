@@ -36,96 +36,96 @@ export function Header() {
         <ul className="flex gap-5">
           {user.loggedIn ? (
             <>
-              <li>
-                <div
-                  className="relative"
-                  onMouseEnter={() => setIsDropdownVisible(true)}
-                  onMouseLeave={() => setIsDropdownVisible(false)}
+              <div
+                className="relative"
+                onMouseEnter={() => setIsDropdownVisible(true)}
+                onMouseLeave={() => setIsDropdownVisible(false)}
+                onFocus={() => setIsDropdownVisible(true)}
+                onBlur={() => setIsDropdownVisible(false)}
+              >
+                <button
+                  className="inline-flex items-center cursor-default"
+                  type="button"
                 >
-                  <button
-                    className="inline-flex items-center cursor-default"
-                    type="button"
+                  {name}
+                  <svg
+                    className="w-4 h-4 ml-2"
+                    aria-hidden="true"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    {name}
-                    <svg
-                      className="w-4 h-4 ml-2"
-                      aria-hidden="true"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M19 9l-7 7-7-7"
-                      ></path>
-                    </svg>
-                  </button>
-                  {isDropdownVisible && (
-                    <div
-                      id="dropdownHover"
-                      className="absolute z-10 w-32 rounded-lg shadow bg-neutral-900"
-                    >
-                      <ul className="py-2 text-sm text-gray-200 divide-y divide-gray-700">
-                        <li>
-                          <a
-                            href={`/profile/${name}`}
-                            className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
-                          >
-                            Profile
-                          </a>
-                        </li>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    ></path>
+                  </svg>
+                </button>
+                {isDropdownVisible && (
+                  <div
+                    id="dropdownHover"
+                    className="absolute z-10 w-32 rounded-lg shadow bg-neutral-900"
+                  >
+                    <ul className="py-2 text-sm text-gray-200 divide-y divide-gray-700">
+                      <li>
+                        <a
+                          href={`/profile/${name}`}
+                          className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        >
+                          Profile
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={`/profile/edit/${name}`}
+                          className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        >
+                          Edit profile
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={"/venue/add"}
+                          className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
+                        >
+                          Add venue
+                        </a>
+                      </li>
+                      {!venueManager ? (
                         <li>
                           <a
                             href={`/profile/edit/${name}`}
                             className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
                           >
-                            Edit profile
+                            Become a manager
                           </a>
                         </li>
+                      ) : (
                         <li>
                           <a
-                            href={"/venue/add"}
+                            href={"/manage/venues"}
                             className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
                           >
-                            Add venue
+                            Manage venues
                           </a>
                         </li>
-                        {!venueManager ? (
-                          <li>
-                            <a
-                              href={`/profile/edit/${name}`}
-                              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
-                            >
-                              Become a manager
-                            </a>
-                          </li>
-                        ) : (
-                          <li>
-                            <a
-                              href={"/manage/venues"}
-                              className="block px-4 py-2 hover:bg-gray-600 hover:text-white"
-                            >
-                              Manage venues
-                            </a>
-                          </li>
-                        )}
-                        <li>
-                          <a
-                            href="#"
-                            className="block px-4 py-2 hover:bg-gray-600 hover:text-white cursor-pointer"
-                            onClick={handleLogout}
-                          >
-                            Logout
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </li>
+                      )}
+                      <li>
+                        <a
+                          href="#"
+                          className="block px-4 py-2 hover:bg-gray-600 hover:text-white cursor-pointer"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
             </>
           ) : (
             <>
