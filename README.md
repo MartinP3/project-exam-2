@@ -16,12 +16,12 @@ A newly launched accommodation booking site called Holidaze has approached you t
 There are two aspects to this brief: the customer-facing side of the website where users can book holidays at a venue, and an admin-facing side of the website where users can register and manage venues and bookings at those venues.
 
 ## Built with
-- React
-- Vite
-- TailwindCSS
-- React-router-dom
-- React-datepicker
-- React-hook-form
+- [React](https://react.dev/)
+- [Vite](https://vitejs.dev/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React-router-dom](https://reactrouter.com/en/main)
+- [React-datepicker](https://reactdatepicker.com/)
+- [React-hook-form](https://react-hook-form.com/)
 
 ## Installing and running this app
 
