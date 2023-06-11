@@ -1,5 +1,7 @@
 # Project Exam 2 - Holidaze
 
+[Live site](https://exquisite-bonbon-119da2.netlify.app/)
+
 ![230610154253](https://github.com/MartinP3/project-exam-2/assets/70173574/ed40c7b2-115a-4ab3-b8f4-eed58a7b5008)
 
 At Holidaze you can book holidays at various locations that other users who took the step towards venue manager status have listed, you can register and opt in and out of venue manager status.
@@ -47,3 +49,6 @@ npm i
 ```
 npm run dev
 ```
+
+## Contact
+[Twitter](https://twitter.com/terriblecoding)
